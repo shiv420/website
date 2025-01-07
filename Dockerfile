@@ -8,5 +8,5 @@ ADD index.html /var/www/html/
 
 EXPOSE 82
 
-CMD ["systemctl", "start" ,"apache2"]
+CMD [ "/usr/sbin/apache2ctl" , "D" , "FOREGROUBND" ]
 
