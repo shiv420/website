@@ -4,7 +4,7 @@ pipeline {
        stage('Git-Checkout') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: 'develop', url: 'https://github.com/shiv420/website.git'
+                git branch: 'master', url: 'https://github.com/shiv420/website.git'
 
                
             }
