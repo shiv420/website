@@ -28,14 +28,6 @@ pipeline {
                }
             }
         }
-        stage("Docker-Push") {
-            steps {
-                withCredentials([string(credentialsId: 'docker_cred', variable: 'dockerpwd')]) {
-                    sh 'docker login -u phillip420 -p ${dockerpwd}'
-                    // some block
-                }
-                sh 'docker push  phillip420/web:v1.0'
-            }
-        }
+        
     }
 }
