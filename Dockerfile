@@ -2,7 +2,7 @@ FROM ubuntu
 
 WORKDIR /app
 
-RUN sudo apt update && sudo apt install apache2
+RUN  apt-get update && apt-get install apache2 --yes
 
 ADD website/index.html /var/www/html/
 
