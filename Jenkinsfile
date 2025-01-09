@@ -17,6 +17,7 @@ pipeline {
         stage('Docker-Build') {
             steps {
                 // Get some code from a GitHub repository
+                
                 sh 'docker build --tag phillip420/web:v1.0 --file Dockerfile .'
 
                
@@ -35,6 +36,21 @@ pipeline {
                     // some block
                 }
                 sh 'docker push  phillip420/web:v1.0'
+            }
+        }
+        stage ("Docker Publish"){
+            steps {
+                script {
+                    try {
+                        sh 'docker stop apache-web'
+                        
+                    }
+                    catch(err) {
+                         echo err.getMessage()
+                    }
+                }
+               
+                sh 'docker run --name apache-web --rm -d --publish 82:80 phillip420/web:v1.0'
             }
         }
     }
