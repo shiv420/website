@@ -25,7 +25,6 @@ pipeline {
                success {
                    echo 'Docker image created'
                    sh 'docker image ls'
-                   sh 'docker rmi $(docker images -f "dangling=true" -q)'
                }
             }
         }
